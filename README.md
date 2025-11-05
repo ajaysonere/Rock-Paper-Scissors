@@ -40,6 +40,18 @@ utils/                 Gesture detection + game logic helpers
 - `npm run android` / `npm run ios` – run on a connected device or emulator
 - `npm run lint` – lint the project
 
+## Publish to Expo
+1. Sign in from the CLI (once per machine):
+   ```bash
+   npx expo login
+   ```
+2. Make sure you’re on the correct account/slug (`app.json` uses `rps-ai`).
+3. Publish the current bundle:
+   ```bash
+   npx expo publish
+   ```
+Expo will host the latest build at a shareable link you can send with your interview submission.
+
 ## Things to improve next
 - Swap the heuristic detector for real hand landmarks (MediaPipe / TFJS).
 - Save match history or streaks to AsyncStorage.

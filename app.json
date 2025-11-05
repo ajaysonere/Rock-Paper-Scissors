@@ -1,16 +1,25 @@
 {
   "expo": {
-    "name": "Rock-Paper-Scissors",
-    "slug": "Rock-Paper-Scissors",
+    "name": "RPS AI",
+    "slug": "rps-ai",
+    "description": "Camera-driven Rock–Paper–Scissors demo built for interview review.",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "rockpaperscissors",
+    "scheme": "rpsai",
     "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/f8cf1a59-66f7-4d0b-873e-409245a1b949"
+    },
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.RockPaperScissors"
+      "bundleIdentifier": "com.ajaysonere.rpsai",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
@@ -21,9 +30,17 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.RockPaperScissors"
+      "package": "com.ajaysonere.rpsai",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
+      "name": "RPS AI",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
@@ -41,11 +58,21 @@
           }
         }
       ],
-      "expo-font"
+      "expo-font",
+      "expo-camera"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f8cf1a59-66f7-4d0b-873e-409245a1b949"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }
