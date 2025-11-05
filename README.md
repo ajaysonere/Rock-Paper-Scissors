@@ -40,6 +40,9 @@ utils/                 Gesture detection + game logic helpers
 - `npm run android` / `npm run ios` – run on a connected device or emulator
 - `npm run lint` – lint the project
 
+## Published build
+- Expo preview: https://expo.dev/accounts/ajaysonere/projects/rps-ai/builds/294a1521-0fc9-4666-8b9c-e3ffe93bf91b
+
 ## Publish to Expo
 1. Sign in from the CLI (once per machine):
    ```bash
