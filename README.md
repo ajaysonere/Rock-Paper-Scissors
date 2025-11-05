@@ -1,50 +1,46 @@
-# Welcome to your Expo app 👋
+# Rock–Paper–Scissors AI (Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a small Expo + React Native app where you can play Rock–Paper–Scissors against a simple AI using your phone’s camera. Hold up a hand gesture, the app tries to guess it, and the computer immediately plays back.
 
-## Get started
+## What’s inside
+- Single-screen flow with a big camera preview and framing hints.
+- On-screen confidence meter so you know when the pose is locked in.
+- Animated result card and a short history of the last five rounds.
+- Gesture detection lives in one module so you can swap in a real model later.
 
-1. Install dependencies
-
+## Getting started
+1. Install the packages  
    ```bash
    npm install
    ```
-
-2. Start the app
-
+2. Start Expo  
    ```bash
-   npx expo start
+   npm run start
    ```
+3. Scan the QR code with Expo Go (Android) or the iOS Camera app.
 
-In the output, you'll find options to open the app in a
+> You’ll need a real camera feed, so test on a physical device if possible.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## How it works
+- The camera view grabs a frame roughly once per second.
+- We resize the frame and look at its file size as a lightweight heuristic to guess rock / paper / scissors.
+- Two confident detections in a row trigger a round. The computer picks a random move and the UI shows the outcome.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Because all of this logic lives in `utils/gestureDetection.ts`, you can replace the heuristic with MediaPipe, TensorFlow, or any other model without touching the UI.
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+## Project layout
+```
+app/(tabs)/index.tsx   Home screen and game flow
+components/            Camera, result card, history list
+utils/                 Gesture detection + game logic helpers
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Handy scripts
+- `npm run start` – launch Metro / Expo CLI
+- `npm run android` / `npm run ios` – run on a connected device or emulator
+- `npm run lint` – lint the project
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Things to improve next
+- Swap the heuristic detector for real hand landmarks (MediaPipe / TFJS).
+- Save match history or streaks to AsyncStorage.
+- Add extra modes (timed rounds, best-of series, multiplayer).
